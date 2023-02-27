@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>style/appstyles.qss</file>
+        <file>icons/win_icon.png</file>
+    </qresource>
+</RCC>
