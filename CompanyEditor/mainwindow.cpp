@@ -7,6 +7,7 @@
 #include <QMessageBox>
 
 #include "company.h"
+#include "companywidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(open, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(save, SIGNAL(triggered()), this, SLOT(saveFile()));
     connect(quit, SIGNAL(triggered()), this, SLOT(close()));
+
+    auto cw = new CompanyWidget(Company::getInstance()->departments);
+    ui->scrollArea->setWidget(cw);
 }
 
 MainWindow::~MainWindow(){

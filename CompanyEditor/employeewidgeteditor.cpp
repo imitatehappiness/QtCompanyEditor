@@ -2,10 +2,12 @@
 #include "ui_employeewidgeteditor.h"
 
 EmployeeWidgetEditor::EmployeeWidgetEditor(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::EmployeeWidgetEditor){
 
     ui->setupUi(this);
+    QObject::connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(acceptEWE()));
+    QObject::connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(rejectEWE()));
 }
 
 EmployeeWidgetEditor::~EmployeeWidgetEditor(){
@@ -20,8 +22,8 @@ Employee EmployeeWidgetEditor::getEmployee(const Employee* employee){
         ui->lE_function->setText(employee->getFunction());
         ui->sB_salary->setValue(employee->getSalary());
     }
-    //setModal(true);
-    //exec();
+    setModal(true);
+    exec();
     Employee newEmployee;
     if(getIsApply()){
         newEmployee.setName(ui->lE_name->text());
@@ -29,40 +31,19 @@ Employee EmployeeWidgetEditor::getEmployee(const Employee* employee){
         newEmployee.setMiddleName(ui->lE_middlename->text());
         newEmployee.setFunction(ui->lE_function->text());
         newEmployee.setSalary(ui->sB_salary->value());
+
     }
     return newEmployee;
 }
 
-void EmployeeWidgetEditor::on_pB_cancel_clicked(){
+void EmployeeWidgetEditor::rejectEWE(){
     isApply = false;
-    close();
+    reject();
 }
 
-void EmployeeWidgetEditor::on_pB_apply_clicked(){
+void EmployeeWidgetEditor::acceptEWE(){
     isApply = true;
-    if(ui->lE_name->text() == ""){
-       ui->lE_name->setStyleSheet("border-color: red");
-       isApply = false;
-    }
-    if(ui->lE_surname->text() == ""){
-       ui->lE_surname->setStyleSheet("border-color: red");
-       isApply = false;
-    }
-    if(ui->lE_middlename->text() == ""){
-       ui->lE_middlename->setStyleSheet("border-color: red");
-       isApply = false;
-    }
-    if(ui->lE_function->text() == ""){
-       ui->lE_function->setStyleSheet("border-color: red");
-       isApply = false;
-    }
-    if(isApply){
-        ui->lE_name->setStyleSheet("");
-        ui->lE_surname->setStyleSheet("");
-        ui->lE_middlename->setStyleSheet("");
-        ui->lE_function->setStyleSheet("");
-        close();
-    }
+    accept();
 }
 
 bool EmployeeWidgetEditor::getIsApply() const{

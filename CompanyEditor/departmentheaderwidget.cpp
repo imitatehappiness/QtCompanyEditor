@@ -27,7 +27,7 @@ void DepartmentHeaderWidget::updateUI(){
         avgSalary += iter->getSalary();
     }
     int depEmpCount = mDepartment.getEmployments().size();
-    avgSalary /= depEmpCount;
+    avgSalary = depEmpCount == 0 ? 0 : int(avgSalary / depEmpCount);
     ui->l_countPeople_value->setText(QString::number(depEmpCount));
     if(mDepartment.getEmployments().size()){
         ui->l_averageSalary_value->setText(QString::number(avgSalary));

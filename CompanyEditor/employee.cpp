@@ -2,6 +2,7 @@
 
 Employee::Employee(const Employee& employee){
     set(employee);
+
 }
 
 QString Employee::getName() const{

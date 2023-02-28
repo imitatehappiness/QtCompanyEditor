@@ -1,11 +1,29 @@
-#ifndef DEPARTMENTWIDGET_H
-#define DEPARTMENTWIDGET_H
+#pragma once
 
+#include <QObject>
+#include <QtWidgets>
 
-class DepartmentWidget
-{
+#include "departmentheaderwidget.h"
+#include "department.h"
+#include "employeewidget.h"
+
+class DepartmentWidget : public QWidget{
+    Q_OBJECT
 public:
-    DepartmentWidget();
+    explicit DepartmentWidget(Department& department, QWidget* parent = nullptr);
+    ~DepartmentWidget();
+    /// Добавление виджета сотрудника
+    void addEmployeeWidget(Employee& employee);
+public slots:
+    /// Обновление формы
+    void updateUI();
+private:
+    /// Отдел
+    Department& mDepartment;
+    /// Виджет хедера отдела
+    DepartmentHeaderWidget* mHeader;
+    /// Список слоев
+    QVBoxLayout* mListLayout;
+    /// Слой
+    QVBoxLayout* mLayout;
 };
-
-#endif // DEPARTMENTWIDGET_H

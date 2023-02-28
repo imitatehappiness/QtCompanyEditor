@@ -28,7 +28,9 @@ void Department::addEmployee(Employee employee, int index){
 }
 
 Department &Department::operator=(const Department &department){
-    *this = department;
+    mName = department.mName;
+    mEmployments = department.mEmployments;
+    return *this;
 }
 
 bool Department::operator==(const Department &department){
@@ -48,11 +50,12 @@ Employee *Department::getEmpByIndex(int index){
 }
 
 int Department::findIndexOfEmp(const Employee &employee){
-    mEmployments.indexOf(employee);
+    return mEmployments.indexOf(employee);
 }
 
 void Department::removeEmpByIndex(int index){
     mEmployments.removeAt(index);
+    //emit mEmployments[index].deleteEmployee(&mEmployments[index]);
     emit changed();
 }
 

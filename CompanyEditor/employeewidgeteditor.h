@@ -1,8 +1,8 @@
 #pragma once
 
-#include <QWidget>
+#include <QDialog>
 
-#include <employee.h>
+#include "employee.h"
 
 namespace Ui {
 class EmployeeWidgetEditor;
@@ -12,7 +12,7 @@ class EmployeeWidgetEditor;
  * \class EmployeeWidgetEditor
  * \brief Виджет редактирования данных сотрудника
  */
-class EmployeeWidgetEditor : public QWidget{
+class EmployeeWidgetEditor : public QDialog{
     Q_OBJECT
 
 public:
@@ -24,10 +24,10 @@ public:
     /// Получение значения isApply
     bool getIsApply() const;
 private slots:
-    /// Отменить изменений
-    void on_pB_cancel_clicked();
     /// Применить имзенения
-    void on_pB_apply_clicked();
+    void acceptEWE();
+    /// Отменить изменений
+    void rejectEWE();
 private:
     Ui::EmployeeWidgetEditor *ui;
     /// Можно ли применить изменения

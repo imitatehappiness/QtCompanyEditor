@@ -32,7 +32,10 @@ SOURCES += \
     employeewidget.cpp \
     employeewidgeteditor.cpp \
     departmentheaderwidget.cpp \
-    departmentwidget.cpp
+    departmentwidget.cpp \
+    addbuttonemployee.cpp \
+    addbuttondepartment.cpp \
+    companywidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,13 +45,18 @@ HEADERS += \
     employeewidget.h \
     employeewidgeteditor.h \
     departmentheaderwidget.h \
-    departmentwidget.h
+    departmentwidget.h \
+    addbuttonemployee.h \
+    addbuttondepartment.h \
+    companywidget.h
 
 FORMS += \
         mainwindow.ui \
     employeewidget.ui \
     employeewidgeteditor.ui \
-    departmentheaderwidget.ui
+    departmentheaderwidget.ui \
+    addbuttonemployee.ui \
+    addbuttondepartment.ui
 
 RESOURCES += \
     resources/resources.qrc

@@ -50,14 +50,14 @@ signals:
     /// Сигнал редактирования данных объекта
     void changed();
 private:
-    /// Фамилия Обьекта
-    QString mSurname;
     /// Имя Обьекта
-    QString mName;
+    QString mName = "";
+    /// Фамилия Обьекта
+    QString mSurname = "";
     /// Отчество Обьекта
-    QString mMiddlename;
+    QString mMiddlename = "";
     /// Функция (Должность) Обьекта
-    QString mFunction;
+    QString mFunction = "";
     /// Зарплата Обьекта
-    int mSalary;
+    int mSalary = 0;
 };
