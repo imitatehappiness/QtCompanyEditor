@@ -28,16 +28,27 @@ SOURCES += \
         mainwindow.cpp \
     employee.cpp \
     department.cpp \
-    company.cpp
+    company.cpp \
+    employeewidget.cpp \
+    employeewidgeteditor.cpp \
+    departmentheaderwidget.cpp \
+    departmentwidget.cpp
 
 HEADERS += \
         mainwindow.h \
     employee.h \
     department.h \
-    company.h
+    company.h \
+    employeewidget.h \
+    employeewidgeteditor.h \
+    departmentheaderwidget.h \
+    departmentwidget.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    employeewidget.ui \
+    employeewidgeteditor.ui \
+    departmentheaderwidget.ui
 
 RESOURCES += \
     resources/resources.qrc

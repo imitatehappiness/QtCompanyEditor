@@ -44,6 +44,10 @@ void Employee::setSalary(int salary){
     mSalary = salary;
 }
 
+QString Employee::getFullName(){
+    return mSurname + " " + mName + " " + mMiddlename;
+}
+
 bool Employee::equals(const Employee& employee){
     return  mName == employee.getName() &&
             mSurname == employee.getSurname() &&

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DepartmentHeaderWidget</class>
+ <widget class="QWidget" name="DepartmentHeaderWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>509</width>
+    <height>103</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="2">
+      <widget class="QPushButton" name="pB_edit">
+       <property name="text">
+        <string>Edit</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="pB_delete">
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="l_countPeople_value">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+font : bold
+}</string>
+       </property>
+       <property name="text">
+        <string>people count</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="l_countPeople">
+       <property name="text">
+        <string>Number of employees:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="l_averageSalary">
+       <property name="text">
+        <string>Everage Salary:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="l_averageSalary_value">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+font : bold
+}</string>
+       </property>
+       <property name="text">
+        <string>avg salary</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="l_departmentName">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+font : bold;
+font-size: 18px
+}</string>
+       </property>
+       <property name="text">
+        <string>Department</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

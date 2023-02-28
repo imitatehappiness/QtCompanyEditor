@@ -43,14 +43,16 @@ void MainWindow::saveFile(){
 
 void MainWindow::close(){
     QMessageBox mBox;
+    mBox.setIcon(QMessageBox::Question);
     mBox.setText("The file will be closed.");
     mBox.setInformativeText("Save changes?");
-    mBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Discard);
+    mBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Discard );
     mBox.setButtonText(QMessageBox::Ok, "Save");
     mBox.setButtonText(QMessageBox::Discard, "Don't save");
 
     if(mBox.exec() == QMessageBox::Ok){
         saveFile();
     }
+
     qApp->quit();
 }
