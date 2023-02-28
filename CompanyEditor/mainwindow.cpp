@@ -60,3 +60,9 @@ void MainWindow::close(){
 
     qApp->quit();
 }
+
+void MainWindow::on_pB_addDeparment_clicked(){
+    Department department;
+    department.setName("New department");
+    Company::getInstance()->addDepartment(department);
+}

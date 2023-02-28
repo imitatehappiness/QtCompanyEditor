@@ -29,7 +29,7 @@ void EmployeeWidget::updateUI(){
 
 void EmployeeWidget::on_pB_edit_clicked(){
     EmployeeWidgetEditor ewe;
-    Employee newEmployee = ewe.getEmployee();
+    Employee newEmployee = ewe.getEmployee(mEmployee);
     if(!newEmployee.equals(*mEmployee) && ewe.getIsApply()){
         mEmployee->set(newEmployee);
     }

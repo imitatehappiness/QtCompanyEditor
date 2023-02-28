@@ -5,6 +5,7 @@ EmployeeWidgetEditor::EmployeeWidgetEditor(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EmployeeWidgetEditor){
 
+    setWindowTitle("Edit employee");
     ui->setupUi(this);
     QObject::connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(acceptEWE()));
     QObject::connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(rejectEWE()));
@@ -12,6 +13,20 @@ EmployeeWidgetEditor::EmployeeWidgetEditor(QWidget *parent) :
 
 EmployeeWidgetEditor::~EmployeeWidgetEditor(){
     delete ui;
+}
+
+void EmployeeWidgetEditor::rejectEWE(){
+    isApply = false;
+    reject();
+}
+
+void EmployeeWidgetEditor::acceptEWE(){
+    isApply = true;
+    accept();
+}
+
+bool EmployeeWidgetEditor::getIsApply() const{
+    return isApply;
 }
 
 Employee EmployeeWidgetEditor::getEmployee(const Employee* employee){
@@ -36,16 +51,4 @@ Employee EmployeeWidgetEditor::getEmployee(const Employee* employee){
     return newEmployee;
 }
 
-void EmployeeWidgetEditor::rejectEWE(){
-    isApply = false;
-    reject();
-}
 
-void EmployeeWidgetEditor::acceptEWE(){
-    isApply = true;
-    accept();
-}
-
-bool EmployeeWidgetEditor::getIsApply() const{
-    return isApply;
-}

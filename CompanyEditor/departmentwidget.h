@@ -22,8 +22,8 @@ private:
     Department& mDepartment;
     /// Виджет хедера отдела
     DepartmentHeaderWidget* mHeader;
-    /// Список слоев
-    QVBoxLayout* mListLayout;
-    /// Слой
+    /// Список сотрудников отдела
+    QVBoxLayout* mEmployeesLayout;
+    /// хедер и список сотрудников
     QVBoxLayout* mLayout;
 };

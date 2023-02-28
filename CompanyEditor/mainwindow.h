@@ -18,6 +18,9 @@ public slots:
     void saveFile();
     /// Закрытие приложение через меню бар
     void close();
+private slots:
+    void on_pB_addDeparment_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
