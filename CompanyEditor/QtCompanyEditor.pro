@@ -7,8 +7,9 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 CONFIG += c++17
-TARGET = QtCompanyEditor
+TARGET = CompanyEditor
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -34,7 +35,6 @@ SOURCES += \
     departmentheaderwidget.cpp \
     departmentwidget.cpp \
     addbuttonemployee.cpp \
-    addbuttondepartment.cpp \
     companywidget.cpp
 
 HEADERS += \
@@ -47,7 +47,6 @@ HEADERS += \
     departmentheaderwidget.h \
     departmentwidget.h \
     addbuttonemployee.h \
-    addbuttondepartment.h \
     companywidget.h
 
 FORMS += \
@@ -56,7 +55,6 @@ FORMS += \
     employeewidgeteditor.ui \
     departmentheaderwidget.ui \
     addbuttonemployee.ui \
-    addbuttondepartment.ui
 
 RESOURCES += \
     resources/resources.qrc

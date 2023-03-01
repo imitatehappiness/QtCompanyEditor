@@ -33,7 +33,7 @@ public:
     /// Найти индекс отдела
     int findIndexOfDep(const Department& department);
     /// Найти индекс сотрудника и его отдела
-    QPair<int,int> findIndexesOfEmp(const Employee& employee);
+    QPair<int,int> findIndexesOfEmp(const Employee &employee);
 public slots:
     /// Cлот, который принимает сигнал от отдела и удаляет его
     void applyDeleting(Department* department);

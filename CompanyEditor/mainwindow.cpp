@@ -47,6 +47,7 @@ void MainWindow::saveFile(){
 
 void MainWindow::close(){
     QMessageBox mBox;
+    mBox.setWindowIcon(QIcon("resources/icons/win_icon.png"));
     mBox.setIcon(QMessageBox::Question);
     mBox.setText("The file will be closed.");
     mBox.setInformativeText("Save changes?");

@@ -9,7 +9,7 @@ class AddButtonEmployee;
 
 /*!
  * \class The AddButtonEmployee class
- * \brief визулазиция кнопки "Add employee"
+ * \brief Визулазиция кнопки "Add employee"
  */
 class AddButtonEmployee : public QWidget{
     Q_OBJECT

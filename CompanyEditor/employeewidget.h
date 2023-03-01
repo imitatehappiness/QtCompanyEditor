@@ -35,6 +35,6 @@ signals:
 private:
     Ui::EmployeeWidget *ui;
     /// Объект сотрудника
-    Employee* mEmployee;
+    Employee* mEmployee = nullptr;
 };
 

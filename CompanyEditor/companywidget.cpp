@@ -4,7 +4,6 @@
 #include <QWidget>
 
 #include "departmentwidget.h"
-#include "addbuttondepartment.h"
 
 CompanyWidget::CompanyWidget(QList<Department>& company, QWidget* parent):
     QWidget(parent),

@@ -6,14 +6,21 @@
 #include "company.h"
 #include "departmentwidget.h"
 
+/*!
+ * \class CompanyWidget
+ * \brief Виджет объединяющий в себе виджеты отделов
+ */
 class CompanyWidget : public QWidget{
     Q_OBJECT
 public:
-    void addDepartmentWidget(Department& department);
     /// Конструктор с параметрами
     CompanyWidget(QList<Department>& company, QWidget* parent = nullptr);
+    /// Добавить виджет отдела
+    void addDepartmentWidget(Department& department);
 public:
+    ///
     QHBoxLayout* layout = nullptr;
+    ///
     QWidget* layoutWidget = nullptr;
 public slots:
     /// Обновление формы
@@ -22,10 +29,8 @@ signals:
     /// Сигнал об изменении
     void changed();
 private:
-    void deleteHLayoutWidgets();
-private:
     /// Компания
     QList<Department>& mCompany;
-    /// Виджеты отделов
+    /// Список виджетов отделов
     QList<DepartmentWidget*> mDepWidgets;
 };

@@ -33,7 +33,7 @@ public:
     /// Получение сотрудника по индексу в списке
     Employee *getEmpByIndex(int index);
     /// Получение индекса по сотруднику
-    int findIndexOfEmp(const Employee& employee);
+    int findIndexOfEmp(const Employee &employee);
     /// Удаление сотрудника по индексу
     void removeEmpByIndex(int index);
 public slots:

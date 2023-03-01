@@ -7,6 +7,10 @@
 #include "department.h"
 #include "employeewidget.h"
 
+/*!
+ * \class DepartmentWidget
+ * \brief Виджет объединяющий в себе виджет хедера отдела и виджеты сотрудников
+ */
 class DepartmentWidget : public QWidget{
     Q_OBJECT
 public:
