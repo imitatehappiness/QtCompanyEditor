@@ -36,7 +36,7 @@ SOURCES += \
     departmentwidget.cpp \
     addbuttonemployee.cpp \
     companywidget.cpp \
-    notification.cpp
+    notification.cpp \
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +49,7 @@ HEADERS += \
     departmentwidget.h \
     addbuttonemployee.h \
     companywidget.h \
-    notification.h
+    notification.h \
 
 FORMS += \
         mainwindow.ui \

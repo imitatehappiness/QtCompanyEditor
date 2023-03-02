@@ -47,7 +47,19 @@ void MainWindow::openFile(){
     qDebug() << "open File";
 }
 
+/*!
+ * \enum SaveStatus
+ * \brief статус для уведомления при сохранении файла
+ */
+enum SaveStatus{
+  ok,
+  error,
+  wrongName,
+};
+
 void MainWindow::saveFile(){
+
+    SaveStatus status = SaveStatus::wrongName;
     auto url = mFileDialog->getExistingDirectoryUrl();
     if(!url.isEmpty()){
         QString fileName = QInputDialog::getText(this, tr("Save file"), tr("Enter the file name:"), QLineEdit::Normal);
@@ -56,7 +68,9 @@ void MainWindow::saveFile(){
             try{
 //                CompanyModelXMLParser().saveModeltoPath(CompanyModel::Company::getInstance()->departments,
 //                                Url.toString(QUrl::RemoveScheme|QUrl::PreferLocalFile)+"/" + fileName + ".xml");
+                status = SaveStatus::ok;
             } catch(...){
+                status = SaveStatus::error;
                 QMessageBox mBox;
                 mBox.setWindowIcon(QIcon("resources/icons/win_icon.png"));
                 mBox.setIcon(QMessageBox::Warning);
@@ -64,11 +78,19 @@ void MainWindow::saveFile(){
                 mBox.setButtonText(QMessageBox::Ok, "Ok");
                 mBox.exec();
             }
+        }else{
+            status = SaveStatus::wrongName;
         }
     }
     activateWindow();
 
-    mNotification->setNotificationText("File saved.");
+    if(status == SaveStatus::ok){
+        mNotification->setNotificationText("File saved.");
+    }else if(status == SaveStatus::wrongName){
+        mNotification->setNotificationText("File not saved.");
+    }else if (status == SaveStatus::error){
+        mNotification->setNotificationText("Error saving the file. File is not saved.");
+    }
     mNotification->show();
 }
 
