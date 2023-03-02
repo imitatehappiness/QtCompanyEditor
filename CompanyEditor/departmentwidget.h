@@ -14,6 +14,7 @@
 class DepartmentWidget : public QWidget{
     Q_OBJECT
 public:
+    /// Конструктор с параметрами
     explicit DepartmentWidget(Department& department, QWidget* parent = nullptr);
     ~DepartmentWidget();
     /// Добавление виджета сотрудника

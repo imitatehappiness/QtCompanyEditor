@@ -36,7 +36,6 @@ void DepartmentHeaderWidget::updateUI(){
         ui->l_averageSalary_value->setText("-");
     }
 }
-#include <QDebug>
 void DepartmentHeaderWidget::on_pB_edit_clicked(){
     bool ok;
     QString newDepName = QInputDialog::getText(this, tr("Edit"),
@@ -46,7 +45,6 @@ void DepartmentHeaderWidget::on_pB_edit_clicked(){
         mDepartment.setName(newDepName);
         updateName();
     }
-    qDebug() << ui->l_departmentName->text() << ": " << mDepartment.getEmployments().size();
 }
 
 void DepartmentHeaderWidget::on_pB_delete_clicked(){

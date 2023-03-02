@@ -55,7 +55,6 @@ int Department::findIndexOfEmp(const Employee &employee){
 
 void Department::removeEmpByIndex(int index){
     mEmployments.removeAt(index);
-    //emit mEmployments[index].deleteEmployee(&mEmployments[index]);
     emit changed();
 }
 

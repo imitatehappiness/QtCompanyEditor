@@ -16,20 +16,26 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QMenu *menu = menuBar()->addMenu("&Settings");
 
-    auto *quit = new QAction("&Quit", this);
+    auto *close = new QAction("&Close File", this);
     auto *open = new QAction("&Open file", this);
     auto *save = new QAction("&Save file", this);
 
+    open->setIcon(QIcon("resources/icons/open_file.png"));
+    save->setIcon(QIcon("resources/icons/save_file.png"));
+    close->setIcon(QIcon("resources/icons/close_file.png"));
+
     menu->addAction(open);
     menu->addAction(save);
-    menu->addAction(quit);
+    menu->addAction(close);
 
     connect(open, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(save, SIGNAL(triggered()), this, SLOT(saveFile()));
-    connect(quit, SIGNAL(triggered()), this, SLOT(close()));
+    connect(close, SIGNAL(triggered()), this, SLOT(close()));
 
     auto cw = new CompanyWidget(Company::getInstance()->departments);
     ui->scrollArea->setWidget(cw);
+
+    mNotification = new Notification(this);
 }
 
 MainWindow::~MainWindow(){
@@ -42,7 +48,28 @@ void MainWindow::openFile(){
 }
 
 void MainWindow::saveFile(){
-    qDebug() << "save File";
+    auto url = mFileDialog->getExistingDirectoryUrl();
+    if(!url.isEmpty()){
+        QString fileName = QInputDialog::getText(this, tr("Save file"), tr("Enter the file name:"), QLineEdit::Normal);
+
+        if(fileName.size() > 0){
+            try{
+//                CompanyModelXMLParser().saveModeltoPath(CompanyModel::Company::getInstance()->departments,
+//                                Url.toString(QUrl::RemoveScheme|QUrl::PreferLocalFile)+"/" + fileName + ".xml");
+            } catch(...){
+                QMessageBox mBox;
+                mBox.setWindowIcon(QIcon("resources/icons/win_icon.png"));
+                mBox.setIcon(QMessageBox::Warning);
+                mBox.setText("File writing error!");
+                mBox.setButtonText(QMessageBox::Ok, "Ok");
+                mBox.exec();
+            }
+        }
+    }
+    activateWindow();
+
+    mNotification->setNotificationText("File saved.");
+    mNotification->show();
 }
 
 void MainWindow::close(){
@@ -59,7 +86,7 @@ void MainWindow::close(){
         saveFile();
     }
 
-    qApp->quit();
+    Company::getInstance()->clear();
 }
 
 void MainWindow::on_pB_addDeparment_clicked(){

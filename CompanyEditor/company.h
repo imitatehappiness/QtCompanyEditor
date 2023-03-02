@@ -41,9 +41,13 @@ signals:
     /// Данные изменились
     void dataChanged();
 private:
+    /// Конструктор
     Company() = default;
+    /// Оператор копирования
     Company( const Company& );
+    /// Оператор присваивания
     Company& operator=( Company& );
 };
 
+/// Компания
 extern Company* company;

@@ -14,7 +14,6 @@ class EmployeeWidgetEditor;
  */
 class EmployeeWidgetEditor : public QDialog{
     Q_OBJECT
-
 public:
     /// Конструктор
     explicit EmployeeWidgetEditor(QWidget *parent = 0);
