@@ -15,11 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow){
 
     ui->setupUi(this);
-    QMenu *menu = menuBar()->addMenu("&Settings");
+    QMenu *menu = menuBar()->addMenu("&File");
 
-    auto *close = new QAction("&Close File", this);
-    auto *open = new QAction("&Open file", this);
-    auto *save = new QAction("&Save file", this);
+    auto *close = new QAction("&Close", this);
+    auto *open = new QAction("&Open", this);
+    auto *save = new QAction("&Save", this);
 
     open->setIcon(QIcon("resources/icons/open_file.png"));
     save->setIcon(QIcon("resources/icons/save_file.png"));
