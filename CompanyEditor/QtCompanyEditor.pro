@@ -37,6 +37,7 @@ SOURCES += \
     addbuttonemployee.cpp \
     companywidget.cpp \
     notification.cpp \
+    xmlparser.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,6 +51,7 @@ HEADERS += \
     addbuttonemployee.h \
     companywidget.h \
     notification.h \
+    xmlparser.h
 
 FORMS += \
         mainwindow.ui \

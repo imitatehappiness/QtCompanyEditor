@@ -37,6 +37,7 @@ void Company::setSettings(){
 
 void Company::setData(QList<Department> data){
     departments = data;
+    emit dataChanged();
 }
 
 void Company::clear(){

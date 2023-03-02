@@ -26,7 +26,7 @@ public:
     void setData(QList<Department> data);
     /// Удаление всех отделов
     void clear();
-    /// Добавить отдела
+    /// Добавить отдел
     void addDepartment(Department department, int index = -1);
     /// Удалить отдел по индексу
     void removeDepByIndex(int index);

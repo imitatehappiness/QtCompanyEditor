@@ -49,7 +49,7 @@ Employee EmployeeWidgetEditor::getEmployee(const Employee* employee){
         ui->lE_function->setText(employee->getFunction());
         ui->sB_salary->setValue(employee->getSalary());
     }
-    setModal(true);
+    //setModal(true);
     exec();
     Employee newEmployee;
     if(getIsApply()){

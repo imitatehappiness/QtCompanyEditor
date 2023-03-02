@@ -8,7 +8,7 @@ class AddButtonEmployee;
 }
 
 /*!
- * \class The AddButtonEmployee class
+ * \class AddButtonEmployee
  * \brief Визулазиция кнопки "Add employee"
  */
 class AddButtonEmployee : public QWidget{

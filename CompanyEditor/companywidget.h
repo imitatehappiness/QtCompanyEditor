@@ -18,9 +18,9 @@ public:
     /// Добавить виджет отдела
     void addDepartmentWidget(Department& department);
 public:
-    ///
+    /// Расположение c виджетами
     QHBoxLayout* layout = nullptr;
-    ///
+    /// Виджет в расположении
     QWidget* layoutWidget = nullptr;
 public slots:
     /// Обновление формы

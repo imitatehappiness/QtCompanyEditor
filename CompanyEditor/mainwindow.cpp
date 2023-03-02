@@ -8,6 +8,7 @@
 
 #include "company.h"
 #include "companywidget.h"
+#include "xmlparser.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -44,7 +45,24 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::openFile(){
-    qDebug() << "open File";
+    XMLParser xmlParser;
+
+    mFileDialog->setAcceptMode(QFileDialog::AcceptMode::AcceptOpen);
+    mFileDialog->setNameFilter(tr("XML Files (*.xml)"));
+    if(mFileDialog->exec()){
+        try{
+            auto result = xmlParser.parseFromPath(mFileDialog->selectedFiles()[0]);
+            Company::getInstance()->setData(std::move(result));
+            Company::getInstance()->setSettings();
+        } catch(...){
+            QMessageBox mBox;
+            mBox.setWindowIcon(QIcon("resources/icons/win_icon.png"));
+            mBox.setText("File reading error!");
+            mBox.setButtonText(QMessageBox::Ok, "Ok");
+            mBox.exec();
+        }
+    }
+    activateWindow();
 }
 
 /*!
@@ -59,6 +77,7 @@ enum SaveStatus{
 
 void MainWindow::saveFile(){
 
+    XMLParser xmlParser;
     SaveStatus status = SaveStatus::wrongName;
     auto url = mFileDialog->getExistingDirectoryUrl();
     if(!url.isEmpty()){
@@ -66,8 +85,8 @@ void MainWindow::saveFile(){
 
         if(fileName.size() > 0){
             try{
-//                CompanyModelXMLParser().saveModeltoPath(CompanyModel::Company::getInstance()->departments,
-//                                Url.toString(QUrl::RemoveScheme|QUrl::PreferLocalFile)+"/" + fileName + ".xml");
+                xmlParser.saveToPath(Company::getInstance()->departments,
+                                url.toString(QUrl::RemoveScheme | QUrl::PreferLocalFile) + "/" + fileName + ".xml");
                 status = SaveStatus::ok;
             } catch(...){
                 status = SaveStatus::error;

@@ -6,6 +6,10 @@
 #include <QPropertyAnimation>
 #include <QTimer>
 
+/*!
+ * \class Notification
+ * \class Класс отвечающий за всплывающие уведомления
+ */
 class Notification : public QWidget{
     Q_OBJECT
     /// Свойство полупрозрачности
