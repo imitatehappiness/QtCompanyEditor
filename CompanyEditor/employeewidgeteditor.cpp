@@ -1,6 +1,7 @@
 #include "employeewidgeteditor.h"
 #include "ui_employeewidgeteditor.h"
 
+#include <notification.h>
 EmployeeWidgetEditor::EmployeeWidgetEditor(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EmployeeWidgetEditor){
@@ -23,13 +24,11 @@ void EmployeeWidgetEditor::rejectEWE(){
 
 void EmployeeWidgetEditor::acceptEWE(){
     isApply = true;
-    ui->l_information->setText("");
-    ui->l_information->setStyleSheet("");
     if(ui->lE_name->text() == "" || ui->lE_surname->text() == "" ||
        ui->lE_middlename->text() == "" || ui->lE_function->text() == "" || ui->sB_salary->value() == 0 ){
-
-        ui->l_information->setText("<b>Fill in all the fields!</b>");
-        ui->l_information->setStyleSheet("color: red;");
+        Notification* mNotification = new Notification(this);
+        mNotification->setNotificationText("Fill in all the fields!");
+        mNotification->show();
         isApply = false;
     }
     if(isApply){

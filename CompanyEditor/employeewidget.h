@@ -15,7 +15,6 @@ class EmployeeWidget;
  */
 class EmployeeWidget : public QWidget{
     Q_OBJECT
-
 public:
     /// Конструктор с парметрами
     explicit EmployeeWidget(Employee* employee, QWidget *parent = 0);
