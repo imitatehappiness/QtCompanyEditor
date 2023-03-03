@@ -26,7 +26,7 @@ EmployeeWidget::~EmployeeWidget(){
 void EmployeeWidget::updateUI(){
     ui->l_name->setText(mEmployee->getFullName());
     ui->l_function->setText(mEmployee->getFunction());
-    ui->l_salary->setText(QString::number(mEmployee->getSalary()) + " rub.");
+    ui->l_salary->setText(QString::number(mEmployee->getSalary()) + " USD");
     emit changed();
 }
 
