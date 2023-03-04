@@ -45,8 +45,6 @@ void EmployeeWidget::on_pB_edit_clicked(){
     }
 }
 
-#include <QDebug>
-
 void EmployeeWidget::on_pB_delete_clicked(){
 
     QMessageBox mBox;
@@ -62,7 +60,6 @@ void EmployeeWidget::on_pB_delete_clicked(){
         auto indexes = Company::getInstance()->findIndexesOfEmp(*mEmployee);
         int depIndex = indexes.first;
         int empIndex = indexes.second;
-        qDebug() << "delete: " << depIndex << " " << empIndex;
         Employee* employee = Company::getInstance()->getEmpFromDepByIndexes(depIndex, empIndex);
         if(employee){
             emit employee->deleteEmployee(employee);

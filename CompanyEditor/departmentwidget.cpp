@@ -16,8 +16,8 @@ DepartmentWidget::DepartmentWidget(Department& department, QWidget* parent) :
 }
 
 void DepartmentWidget::addEmployeeWidget(Employee& employee){
-    auto employeeWidget = new EmployeeWidget(&employee);
-    QObject::connect(&employee, SIGNAL(changed()), mHeader, SLOT(updateUI()));
+    EmployeeWidget* employeeWidget = new EmployeeWidget(&employee);
+    QObject::connect(employeeWidget, SIGNAL(changed()), mHeader, SLOT(updateUI()));
     mEmployeesLayout->addWidget(employeeWidget);
 }
 
