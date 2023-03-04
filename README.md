@@ -14,7 +14,7 @@ Data can be saved and read using an XML file.
 >
 >**Profile Qt:**  5.11.0 MinGW 32bit
 
-## Example XML file:
+## Example XML file
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <departments>
