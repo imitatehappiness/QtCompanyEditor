@@ -5,10 +5,15 @@
   <h3 align="center"></h3>
 </p>
 
-## About The Project
+# Company Editor
 
-The application provides the ability to add, delete, edit departments and employees of the company.
-Data can be saved and read using an XML file.
+This C++ Qt application allows users to manage departments and employees of a company. Users can add, delete, and edit departments and employees through an intuitive graphical user interface. The application also supports saving and reading data using an XML file for persistent storage.
+
+## Features
++ Add new departments and employees: Users can easily create new departments and add employee information, such as name, position, and contact details.
++ Edit existing departments and employees: The application allows users to update department information and modify employee details.
++ Delete departments and employees: Users have the option to remove departments and employees from the company records.
++ Save and load data: The application supports exporting all the company data to an XML file for safekeeping and importing data from a previously saved XML file.
 
 >**Compiler:**  MinGW 5.3.0 32bit
 >
